@@ -9,7 +9,6 @@ export default async function handler(
   const { ip = '' } = req.body
   const url = `https://geo.ipify.org/api/v2/country,city?apiKey=${GEO_API_KEY}&ipAddress=${ip}`
   const data: GeoData = await (await fetch(url)).json()
-  console.log(data)
 
   res.status(200).json(data)
 }

@@ -14,10 +14,8 @@ function ChangeView({ center, zoom }: { center: Center; zoom: number }) {
 }
 
 const Map = (data?: GeoData) => {
-  const { lat, lng } = data?.location!
+  const { lat, lng } = data?.location ?? { lat: 0, lng: 0 }
   const position = { lat, lng }
-
-  console.log(position)
 
   return (
     <MapContainer center={position} zoom={13}>

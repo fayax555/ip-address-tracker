@@ -18,6 +18,10 @@
   font-family: 'Rubik', sans-serif;
 }
 
+.wrapper > input::placeholder {
+  opacity: 0.6;
+}
+
 .wrapper > button {
   height: 58px;
   border: none;
