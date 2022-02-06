@@ -2,6 +2,8 @@ export interface GeoData {
   ip?: string
   isp?: string
   location?: Location
+  code?: number
+  message?: string
 }
 
 interface Location {

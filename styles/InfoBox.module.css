@@ -35,16 +35,25 @@
   }
 
   .content {
-    /* min-height: 161px; */
     background-color: #fff;
     border-radius: 15px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, 278px);
   }
 
   .content > article {
     padding-left: 32px;
     padding-top: 10px;
+    position: relative;
+  }
+
+  .content > article:not(:nth-of-type(1))::before {
+    content: '';
+    position: absolute;
+    top: 18px;
+    left: 0;
+    border: 1px solid rgb(230, 223, 223);
+    height: 75px;
   }
 
   .content > article > h2 {

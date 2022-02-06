@@ -13,7 +13,7 @@ const Home: NextPage = () => {
   const [data, setData] = useState<GeoData>()
 
   useEffect(() => {
-    getGeoData('').then((data) => setData(data))
+    getGeoData('').then(({ data }) => setData(data))
   }, [])
 
   if (!data) return null

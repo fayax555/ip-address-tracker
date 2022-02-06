@@ -1,9 +1,9 @@
 .wrapper {
   display: grid;
   grid-template-columns: auto 60px;
-  align-items: baseline;
   max-width: 555px;
   margin: 0 auto;
+  position: relative;
 }
 
 .wrapper > input {
@@ -32,8 +32,19 @@
   margin-bottom: 20px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
+  margin-top: 30px;
 }
 
 .wrapper > button:hover {
   background-color: hsl(0, 0%, 17%);
+}
+
+.error {
+  position: absolute;
+  color: rgb(189, 23, 23);
+  background-color: rgb(245, 220, 220);
+  padding: 2px 20px;
+  border-radius: 6px;
+  top: 5px;
+  font-size: 0.9rem;
 }

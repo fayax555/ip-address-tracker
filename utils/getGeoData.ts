@@ -10,5 +10,5 @@ export const getGeoData = async (ip: string) => {
   })
 
   const data: GeoData = (await res.json()) as GeoData
-  return data
+  return { error: !res.ok, data }
 }

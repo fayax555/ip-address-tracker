@@ -1,4 +1,11 @@
-import { useRef, FormEvent, Dispatch, SetStateAction } from 'react'
+import {
+  useRef,
+  useState,
+  useEffect,
+  FormEvent,
+  Dispatch,
+  SetStateAction,
+} from 'react'
 import { GeoData } from 'types'
 import { getGeoData } from 'utils/getGeoData'
 import styles from 'styles/Form.module.css'
@@ -9,14 +16,23 @@ interface Props {
 
 const Form = ({ setData }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null)
+  const [error, setError] = useState('')
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setData(await getGeoData(inputRef.current?.value ?? ''))
+    const { error, data } = await getGeoData(inputRef.current?.value ?? '')
+    console.log({ error, data })
+
+    return error ? setError(data.message!) : setData(data)
   }
+
+  useEffect(() => {
+    if (error) setTimeout(() => setError(''), 3000)
+  }, [error])
 
   return (
     <form className={styles.wrapper} onSubmit={handleSubmit}>
+      {error && <p className={styles.error}>{error}</p>}
       <input
         ref={inputRef}
         type='text'
