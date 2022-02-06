@@ -1,0 +1,12 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  border: solid blue;
+  text-align: center;
+}
+
+@media (min-width: 800px) {
+  .wrapper {
+    text-align: revert;
+  }
+}

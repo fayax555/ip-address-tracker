@@ -1,15 +1,13 @@
 import { GeoData } from 'types'
-import styled from 'styled-components'
+import styles from 'styles/InfoBox.module.css'
 
 const InfoBox = (data?: GeoData) => {
   const { ip, isp, location } = data || {}
   const { city, region, country, lat, lng, timezone, postalCode } =
     location || {}
 
-  console.log(lat, lng)
-
   return (
-    <Box>
+    <div className={styles.wrapper}>
       {data && (
         <>
           <article>
@@ -33,19 +31,8 @@ const InfoBox = (data?: GeoData) => {
           </article>
         </>
       )}
-    </Box>
+    </div>
   )
 }
-
-const Box = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  border: solid blue;
-  text-align: center;
-
-  @media (min-width: 800px) {
-    text-align: revert;
-  }
-`
 
 export default InfoBox

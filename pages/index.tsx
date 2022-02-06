@@ -1,14 +1,21 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { GeoData } from 'types'
 import Form from 'components/Form'
 import InfoBox from 'components/InfoBox'
 import dynamic from 'next/dynamic'
+import { getGeoData } from 'utils/getGeoData'
 const Map = dynamic(() => import('components/Map'), { ssr: false })
 
 const Home: NextPage = () => {
   const [data, setData] = useState<GeoData>()
+
+  useEffect(() => {
+    getGeoData('').then((data) => setData(data))
+  }, [])
+
+  if (!data) return null
 
   return (
     <>
@@ -22,7 +29,7 @@ const Home: NextPage = () => {
         <h1>IP Address Tracker</h1>
         <Form setData={setData} />
         <InfoBox {...data} />
-        <Map />
+        <Map {...data} />
       </main>
     </>
   )
