@@ -1,12 +1,36 @@
 .wrapper {
   display: grid;
+  align-content: center;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  border: solid blue;
   text-align: center;
+  position: absolute;
+  z-index: 12;
+  top: 165px;
+  width: 100%;
+  min-height: 161px;
+  padding: 0 24px;
 }
-
 @media (min-width: 800px) {
   .wrapper {
     text-align: revert;
   }
+}
+
+.content {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 28px 0;
+}
+
+.content > article > h2 {
+  font-size: 0.625rem;
+  padding-bottom: 10px;
+  letter-spacing: 0.15em;
+  color: hsl(0, 0%, 59%);
+}
+
+.content > article > p {
+  font-size: 1.25rem;
+  padding-bottom: 20px;
+  font-weight: 500;
 }

@@ -7,6 +7,7 @@ import InfoBox from 'components/InfoBox'
 import dynamic from 'next/dynamic'
 import { getGeoData } from 'utils/getGeoData'
 const Map = dynamic(() => import('components/Map'), { ssr: false })
+import styles from 'styles/Home.module.css'
 
 const Home: NextPage = () => {
   const [data, setData] = useState<GeoData>()
@@ -25,9 +26,11 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main>
-        <h1>IP Address Tracker</h1>
-        <Form setData={setData} />
+      <main className={styles.main}>
+        <div className={styles.input_wrapper}>
+          <h1>IP Address Tracker</h1>
+          <Form setData={setData} />
+        </div>
         <InfoBox {...data} />
         <Map {...data} />
       </main>

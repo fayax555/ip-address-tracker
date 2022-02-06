@@ -5,11 +5,6 @@ const nextConfig = {
     locales: ['en'],
     defaultLocale: 'en',
   },
-
-  experimental: {
-    // Enables the styled-components SWC transform
-    styledComponents: true,
-  },
 }
 
 module.exports = nextConfig

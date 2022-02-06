@@ -9,7 +9,7 @@ const InfoBox = (data?: GeoData) => {
   return (
     <div className={styles.wrapper}>
       {data && (
-        <>
+        <div className={styles.content}>
           <article>
             <h2>IP ADDRESS</h2>
             <p>{ip}</p>
@@ -17,9 +17,8 @@ const InfoBox = (data?: GeoData) => {
           <article>
             <h2>LOCATION</h2>
             <p>
-              {city}, {region}, {country}
+              {city}, {region}, {country} {postalCode}
             </p>
-            <p>{postalCode}</p>
           </article>
           <article>
             <h2>TIMEZONE</h2>
@@ -29,7 +28,7 @@ const InfoBox = (data?: GeoData) => {
             <h2>ISP</h2>
             <p>{isp}</p>
           </article>
-        </>
+        </div>
       )}
     </div>
   )

@@ -1,6 +1,7 @@
 import { useRef, FormEvent, Dispatch, SetStateAction } from 'react'
 import { GeoData } from 'types'
 import { getGeoData } from 'utils/getGeoData'
+import styles from 'styles/Form.module.css'
 
 interface Props {
   setData: Dispatch<SetStateAction<GeoData | undefined>>
@@ -15,9 +16,13 @@ const Form = ({ setData }: Props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.wrapper} onSubmit={handleSubmit}>
       <input ref={inputRef} type='text' />
-      <button>Enter</button>
+      <button>
+        <svg xmlns='http://www.w3.org/2000/svg' width='11' height='14'>
+          <path fill='none' stroke='#FFF' strokeWidth='3' d='M2 1l6 6-6 6' />
+        </svg>
+      </button>
     </form>
   )
 }

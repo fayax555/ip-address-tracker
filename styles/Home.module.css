@@ -1,0 +1,16 @@
+.main {
+  background-color: #ad0808;
+}
+
+.input_wrapper {
+  min-height: 300px;
+  background: url('/images/pattern-bg.png') no-repeat center/cover;
+  padding: 24px;
+}
+
+.input_wrapper > h1 {
+  color: #fff;
+  font-size: 1.625rem;
+  text-align: center;
+  font-weight: 500;
+}
